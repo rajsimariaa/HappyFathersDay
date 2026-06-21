@@ -1,0 +1,281 @@
+/* style.css */
+:root {
+    --bg-dark: #050508;
+    --text-main: #f0f0f0;
+    --gold: #D4AF37;
+    --crimson: #C0392B;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --font-script: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* Background Canvas */
+#particle-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5; /* Subtle starry glow */
+}
+
+#smooth-wrapper {
+    position: relative;
+    z-index: 10; /* Above canvas */
+}
+
+/* Typography Utilities */
+.text-center { text-align: center; }
+.gold-text { color: var(--gold); }
+.text-crimson { color: var(--crimson); }
+.letter-spacing-wide { letter-spacing: 0.4em; }
+.margin-top { margin-top: 30px; }
+.z-10 { z-index: 10; position: relative; }
+
+.main-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 12rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.sub-heading {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 2rem);
+    font-weight: 200;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 20px;
+}
+
+.giant-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 12vw, 15rem);
+    font-weight: 900;
+    line-height: 1;
+}
+
+.medium-heading {
+    font-family: var(--font-script);
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+}
+
+.body-text {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.7);
+}
+
+.gold-glow {
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+}
+
+/* Entrance Overlay */
+#entrance-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.entrance-content {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.entrance-text {
+    font-family: var(--font-script);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    min-height: 4rem; /* Prevent layout jump */
+}
+
+.glow-btn {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 15px 40px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0; /* Hidden initially */
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1) inset;
+}
+
+.glow-btn:hover {
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4) inset, 0 0 30px rgba(212, 175, 55, 0.2);
+    transform: scale(1.05);
+}
+
+/* Panels */
+.panel {
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.content-wrapper {
+    padding: 0 5vw;
+}
+
+/* 3D Typography Scroll */
+.typography-scroll-panel {
+    height: 100vh;
+    background: transparent;
+    perspective: 1500px;
+}
+
+.silhouette-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    opacity: 0.3; /* Subtle blend */
+}
+
+.silhouette-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8) contrast(1.2);
+}
+
+.text-3d-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    z-index: 10;
+}
+
+.text-card {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 90vw;
+    transform: translate(-50%, -50%) translateZ(-3000px); /* Start very far back */
+    opacity: 0;
+    text-align: center;
+}
+
+.floating-quote {
+    font-family: var(--font-script);
+    font-size: clamp(2rem, 6vw, 6rem);
+    font-style: italic;
+    color: #fff;
+    text-shadow: 0 0 50px rgba(255,255,255,0.2);
+}
+
+/* Character Splitting utility */
+.char {
+    display: inline-block;
+}
+
+/* Finale Sunrise */
+.finale-panel {
+    background: #000;
+}
+
+.sunrise-overlay {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 150%;
+    background: radial-gradient(circle at bottom center, rgba(197, 160, 89, 0.4) 0%, rgba(192, 57, 43, 0.1) 40%, #000 80%);
+    opacity: 0; /* Faded in by GSAP */
+    pointer-events: none;
+}
+
+/* Designer Footer */
+.site-footer {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    padding: 25px 0;
+    text-align: center;
+    z-index: 20;
+}
+
+.credit-text {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: #888;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.credit-text .heart {
+    color: var(--crimson);
+    animation: heartbeat 1.5s infinite;
+    display: inline-block;
+}
+
+.credit-link, .credit-link:visited {
+    color: var(--gold);
+    text-decoration: none !important;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+.credit-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0; left: 0;
+    background-color: var(--gold);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.credit-link:hover { color: var(--crimson); }
+.credit-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    background-color: var(--crimson);
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}

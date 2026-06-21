@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Father's Day</title>
+    <!-- High-end Cinematic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@200;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cinematic Audio (Invisible) -->
+    <div id="youtube-audio"></div>
+
+    <!-- The Void Entrance -->
+    <div id="entrance-overlay">
+        <div class="entrance-content">
+            <h1 class="entrance-text" id="typewriter-text"></h1>
+            <button id="enter-btn" class="glow-btn">Enter</button>
+        </div>
+    </div>
+
+    <!-- Background Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- Title Sequence -->
+            <section class="panel title-panel" data-color="#050508">
+                <div class="content-wrapper text-center">
+                    <h2 class="sub-heading letter-spacing-wide split-chars parallax" data-speed="0.5">HAPPY FATHER'S DAY</h2>
+                    <h1 class="main-heading gold-glow split-chars parallax" data-speed="0.8">PAPA</h1>
+                </div>
+            </section>
+
+            <!-- Floating Memories (3D Text Scroll) -->
+            <section class="panel typography-scroll-panel" id="text-scroll">
+                <div class="silhouette-bg">
+                    <img src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=2070&auto=format&fit=crop" alt="Cinematic Starry Sky">
+                </div>
+                <div class="text-3d-container">
+                    <div class="text-card t-1"><h1 class="floating-quote">"You were my quiet strength."</h1></div>
+                    <div class="text-card t-2"><h1 class="floating-quote">"My guiding light in the dark."</h1></div>
+                    <div class="text-card t-3"><h1 class="floating-quote">"The foundation I stand upon."</h1></div>
+                    <div class="text-card t-4"><h1 class="floating-quote">"Thank you for everything."</h1></div>
+                </div>
+            </section>
+
+            <!-- The Constellation Sequence -->
+            <section class="panel message-panel" data-color="#0a0a12">
+                <div class="content-wrapper text-center">
+                    <h2 class="medium-heading cinematic-text fade-in-up">Even without pictures,</h2>
+                    <h2 class="medium-heading cinematic-text fade-in-up delay-1">every lesson you taught me</h2>
+                    <h2 class="medium-heading gold-glow fade-in-up delay-2 margin-top">is permanently etched in my soul.</h2>
+                </div>
+            </section>
+
+            <!-- The Grand Finale (Sunrise Gradient) -->
+            <section class="panel finale-panel" id="final-panel">
+                <div class="sunrise-overlay"></div>
+                <div class="content-wrapper text-center z-10">
+                    <h1 class="giant-heading split-chars text-crimson parallax" data-speed="1.2">WE LOVE YOU</h1>
+                    <p class="body-text fade-in-up delay-2 margin-top">May your days be filled with peace and joy.</p>
+                </div>
+                
+                <!-- Designer Signature Footer -->
+                <footer class="site-footer">
+                    <p class="credit-text">
+                        Crafted with <span class="heart">❤️</span> by 
+                        <a href="https://rajsimaria.vercel.app" target="_blank" class="credit-link hover-target">Raj Simaria</a>
+                    </p>
+                </footer>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- APIs & Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
